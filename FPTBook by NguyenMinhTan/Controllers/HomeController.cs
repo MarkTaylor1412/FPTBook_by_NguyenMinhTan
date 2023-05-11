@@ -26,11 +26,12 @@ namespace FPTBook_by_NguyenMinhTan.Controllers
 				.OrderBy(p => p.ProductID)
 				.Skip((ProductPage - 1) * PageSize)
 				.Take(PageSize),
+
 				PagingInfo = new PagingInfo
 				{
 					CurrentPage = ProductPage,
 					ItmesPerPage = PageSize,
-					TotalItems = repository.Products.Count()
+					TotalItems = category == null ? repository.Products.Count() : repository.Products.Where(e => e.ProductCategory == category).Count()
 				},
 
 				CurrentCategory = category

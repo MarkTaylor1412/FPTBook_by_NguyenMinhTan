@@ -18,29 +18,29 @@ namespace FPTBook_by_NguyenMinhTan.Models
 				context.Products.AddRange(
 					new Product
 					{
-						ProductName = "Taylor",
-						ProductCategory = "Sci-fi",
-						ProductPrice = 12,
+						ProductName = "Star Wars Origins: Vader.",
+						ProductCategory = "Star Wars",
+						ProductPrice = 120,
 						ProductQuantity = 12,
-						ProductDescription = "Very Cool."
+						ProductDescription = "It's Vader, duh."
 					},
 
 					new Product
 					{
-						ProductName = "Taylor",
-						ProductCategory = "Sci-fi",
-						ProductPrice = 12,
-						ProductQuantity = 12,
-						ProductDescription = "Very Cool."
+						ProductName = "Marvel's Thanos wins.",
+						ProductCategory = "Marvel",
+						ProductPrice = 99,
+						ProductQuantity = 596,
+						ProductDescription = "When Thanos wins."
 					},
 
 					new Product
 					{
-						ProductName = "Taylor",
-						ProductCategory = "Sci-fi",
-						ProductPrice = 12,
-						ProductQuantity = 12,
-						ProductDescription = "Very Cool."
+						ProductName = "DC's Batman kills the Justtice League.",
+						ProductCategory = "DC",
+						ProductPrice = 79,
+						ProductQuantity = 439,
+						ProductDescription = "For those who said Batman had nothing but money."
 					}
 				);
 
