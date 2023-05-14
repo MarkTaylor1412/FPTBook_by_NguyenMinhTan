@@ -6,7 +6,7 @@ namespace FPTBook_by_NguyenMinhTan.Models
 	{
 		public List<CartLine> Lines { get; set; } = new List<CartLine>();
 
-		public void AddToCart(Product product, int quantity)
+		public virtual void AddToCart(Product product, int quantity)
 		{
 			CartLine? line = Lines
 				.Where(p  => p.Product.ProductID == product.ProductID)
@@ -26,13 +26,14 @@ namespace FPTBook_by_NguyenMinhTan.Models
 				}
 		}
 
-		public void RemoveLine(Product product) =>
+		public virtual void RemoveLine(Product product) =>
 				Lines.RemoveAll(l => l.Product.ProductID == product.ProductID);
 
 		public decimal ComputeTotalValue() =>
 			Lines.Sum(e => e.Product.ProductPrice * e.ItemQuantity);
 
-		public void ClearLine() => Lines.Clear();
+		public virtual void ClearLine() => Lines.Clear();
+
 		public class CartLine
 		{
 			public int CartLinetID { get; set;}

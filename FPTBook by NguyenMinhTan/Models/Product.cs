@@ -6,7 +6,7 @@ namespace FPTBook_by_NguyenMinhTan.Models
 	{
 		public long? ProductID { get; set; }
 
-		public string ProductName { get; set; }
+		public string? ProductName { get; set; }
 
 		public string ProductCategory { get; set; } = String.Empty;
 
