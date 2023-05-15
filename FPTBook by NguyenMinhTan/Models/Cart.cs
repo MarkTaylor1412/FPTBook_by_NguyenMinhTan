@@ -1,4 +1,6 @@
-﻿using Microsoft.Identity.Client;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
+using System.ComponentModel.DataAnnotations;
 
 namespace FPTBook_by_NguyenMinhTan.Models
 {
@@ -9,7 +11,7 @@ namespace FPTBook_by_NguyenMinhTan.Models
 		public virtual void AddToCart(Product product, int quantity)
 		{
 			CartLine? line = Lines
-				.Where(p  => p.Product.ProductID == product.ProductID)
+				.Where(p => p.Product.ProductID == product.ProductID)
 				.FirstOrDefault();
 
 			if (line == null)
@@ -20,27 +22,26 @@ namespace FPTBook_by_NguyenMinhTan.Models
 					ItemQuantity = quantity,
 				});
 			}
-				else
-				{
-					line.ItemQuantity += quantity;
-				}
+			else
+			{
+				line.ItemQuantity += quantity;
+			}
 		}
 
-		public virtual void RemoveLine(Product product) =>
-				Lines.RemoveAll(l => l.Product.ProductID == product.ProductID);
+		public virtual void RemoveLine(Product product) => Lines.RemoveAll(l => l.Product.ProductID == product.ProductID);
 
-		public decimal ComputeTotalValue() =>
-			Lines.Sum(e => e.Product.ProductPrice * e.ItemQuantity);
+		public decimal ComputeTotalValue() => Lines.Sum(e => e.Product.ProductPrice * e.ItemQuantity);
 
 		public virtual void ClearLine() => Lines.Clear();
+	}
 
-		public class CartLine
-		{
-			public int CartLinetID { get; set;}
+	public class CartLine
+	{
+		[Key]
+		public int CartLinetID { get; set; }
 
-			public Product Product { get; set; } = new();
+		public Product Product { get; set; } = new();
 
-			public int ItemQuantity { get; set; }
-		}
+		public int ItemQuantity { get; set; }
 	}
 }

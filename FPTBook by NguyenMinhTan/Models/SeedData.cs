@@ -41,6 +41,15 @@ namespace FPTBook_by_NguyenMinhTan.Models
 						ProductPrice = 79,
 						ProductQuantity = 439,
 						ProductDescription = "For those who said Batman had nothing but money."
+					},
+
+					new Product
+					{
+						ProductName = "How to be good at Coding.",
+						ProductCategory = "IT",
+						ProductPrice = 89,
+						ProductQuantity = 561,
+						ProductDescription = "For those who sucks at coding."
 					}
 				);
 
