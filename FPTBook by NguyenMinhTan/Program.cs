@@ -23,6 +23,7 @@ builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession();
 builder.Services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddServerSideBlazor();
 
 var app = builder.Build();
 
@@ -44,27 +45,30 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapControllerRoute("pagination", "Products/Page{ProductPage}", new { Controller = "Home", action = "Index" });
+app.MapControllerRoute("pagination",
+						"Products/Page{ProductPage}",
+						new { Controller = "Home", action = "Index" });
 
 app.MapControllerRoute("catpage",
-					   "{category}/Page{productPage:int}",
-					   new { Controller = "Home", action = "Index" });
+						"{category}/Page{ProductPage:int}",
+						new { Controller = "Home", action = "Index" });
 
 app.MapControllerRoute("page",
-					   "Page{productPage:int}",
-					   new { Controller = "Home", action = "Index", ProductPage = 1 });
+						"Page{ProductPage:int}",
+						new { Controller = "Home", action = "Index", ProductPage = 1 });
 
 app.MapControllerRoute("category",
-					   "{category}",
-					   new { Controller = "Home", action = "Index", ProductPage = 1 });
+						"{category}",
+						new { Controller = "Home", action = "Index", ProductPage = 1 });
 
 app.MapControllerRoute("pagination",
-					   "Products/Page{productPage}",
-					   new { Controller = "Home", action = "Index", ProductPage = 1 });
+						"Products/Page{ProductPage}",
+						new { Controller = "Home", action = "Index", ProductPage = 1 });
 
 app.MapDefaultControllerRoute();
-
 app.MapRazorPages();
+app.MapBlazorHub();
+app.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
 
 SeedData.EnsurePopulated(app);
 
