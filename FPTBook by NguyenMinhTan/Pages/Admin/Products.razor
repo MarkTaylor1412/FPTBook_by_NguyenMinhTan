@@ -1,4 +1,75 @@
 ﻿@page "/admin/products"
 @page "/admin"
+@inherits OwningComponentBase<IStoreRepository>
 
 <h4> Đây là trang sản phẩm. Oke chưa? </h4>
+
+<table class="table table-sm table-striped table-borderless">
+	<thead>
+		<tr>
+			<th> ID </th>
+			<th> Name </th>
+			<th> Category </th>
+			<th> Price </th>
+			<th> Quantity </th>
+			<th> Description </th>
+		</tr>
+	</thead>
+	<tbody>
+		@if (ProductData?.Count() > 0)
+		{
+			@foreach (Product p in ProductData)
+			{
+				<tr>
+					<td> @p.ProductID </td>
+					<td> @p.ProductName </td>
+					<td> @p.ProductCategory </td>
+					<td> @p.ProductPrice.ToString("c") </td>
+					<td> @p.ProductQuantity </td>
+					<td> @p.ProductDescription </td>
+					<td>
+						<NavLink class="btn btn-info btn-sm"
+									href="@GetDetailsUrl(p.ProductID ?? 0)">
+							View
+						</NavLink>
+						<NavLink class="btn btn-warning btn-sm"
+									href="@GetEditUrl(p.ProductID ?? 0)">
+							Modify
+						</NavLink>
+					</td>
+				</tr>
+			}
+		}
+
+		else
+		{
+			<tr>
+				<td colspan="5" class="text-center"> [No products] </td>
+			</tr>
+		}
+	</tbody>
+</table>
+
+<NavLink class="btn btn-primary" href="/admin/products/+">
+	+
+</NavLink>
+
+@code {
+	public IStoreRepository Repository => Service;
+
+	public IEnumerable<Product> ProductData { get; set; } = Enumerable.Empty<Product>();
+
+	protected async override Task OnInitializedAsync()
+	{
+		await UpdateData();
+	}
+
+	public async Task UpdateData()
+	{
+		ProductData = await Repository.Products.ToListAsync();
+	}
+
+	public string GetDetailsUrl(long id) => $"/admin/products/details/{id}";
+
+	public string GetEditUrl(long id) => $"/admin/products/edit/{id}";
+}

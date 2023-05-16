@@ -30,5 +30,8 @@ namespace FPTBook_by_NguyenMinhTan.Models
 		[Required(ErrorMessage = "Your country?")]
 		public string? Country { get; set; }
 		public bool GiftWrap { get; set; }
+
+		[BindNever]
+		public bool Shipped { get; set; }
 	}
 }
