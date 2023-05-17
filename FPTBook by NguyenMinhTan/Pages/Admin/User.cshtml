@@ -1,0 +1,40 @@
+﻿@page
+@model IdentityUserModel
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Authorization
+
+<h3 class="bg-primary text-white text-center p-2"> List of administrators </h3>
+
+<table class="table table-sm table-striped table-bordered">
+	<tbody>
+		<tr>
+			<th> Username </th>
+			<td> @Model.AdminUser.UserName </td>
+		</tr>
+		<tr>
+			<th> Email </th>
+			<td> @Model.AdminUser.Email </td>
+		</tr>
+		<tr>
+			<th> Phone number </th>
+			<td> @Model.AdminUser.PhoneNumber </td>
+		</tr>
+	</tbody>
+</table>
+
+@functions {
+	[Authorize]
+	public class IdentityUserModel : PageModel {
+		private UserManager<IdentityUser> userManager;
+
+		public IdentityUserModel(UserManager<IdentityUser> userMng) {
+			userManager = userMng;
+		}
+
+		public IdentityUser AdminUser { get; set; } = new();
+
+		public async Task OnGetAsync() {
+			AdminUser = await userManager.FindByNameAsync("Taylor");
+		}
+	}
+}

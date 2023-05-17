@@ -2,9 +2,9 @@
 @page "/admin"
 @inherits OwningComponentBase<IStoreRepository>
 
-<h4> Đây là trang sản phẩm. Oke chưa? </h4>
+<h3> [The list of products] </h3>
 
-<table class="table table-sm table-striped table-borderless">
+<table class="table table-sm table-striped table-bordered">
 	<thead>
 		<tr>
 			<th> ID </th>
@@ -28,14 +28,18 @@
 					<td> @p.ProductQuantity </td>
 					<td> @p.ProductDescription </td>
 					<td>
-						<NavLink class="btn btn-info btn-sm"
+						<NavLink class="btn btn-outline-primary btn-sm"
 									href="@GetDetailsUrl(p.ProductID ?? 0)">
 							View
 						</NavLink>
-						<NavLink class="btn btn-warning btn-sm"
+						<NavLink class="btn btn-outline-warning btn-sm"
 									href="@GetEditUrl(p.ProductID ?? 0)">
 							Modify
 						</NavLink>
+						<button class="btn btn-outline-danger btn-sm"
+									@onclick="@(e => DeleteProduct(p))">
+							Remove
+						</button>
 					</td>
 				</tr>
 			}
@@ -50,7 +54,7 @@
 	</tbody>
 </table>
 
-<NavLink class="btn btn-primary" href="/admin/products/+">
+<NavLink class="btn btn-dark" href="/admin/products/add">
 	+
 </NavLink>
 
@@ -67,6 +71,12 @@
 	public async Task UpdateData()
 	{
 		ProductData = await Repository.Products.ToListAsync();
+	}
+
+	public async Task DeleteProduct(Product p)
+	{
+		Repository.DeleteProduct(p);
+		await UpdateData();
 	}
 
 	public string GetDetailsUrl(long id) => $"/admin/products/details/{id}";
