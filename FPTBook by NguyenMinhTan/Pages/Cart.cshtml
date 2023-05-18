@@ -4,12 +4,13 @@
 @model FPTBook_by_NguyenMinhTan.Pages.CartModel
 @addTagHelper *, FPTBook_by_NguyenMinhTan
 
-<h2>
-	Your Shopping Cart
-</h2>
+<div align="center">
+<h2 class="text-bg-warning"> Your Shopping Cart </h2>
+<br />
+
 <table class="table table-bordered table-striped">
 	<thead>
-		<tr>
+		<tr class="text-center text-bg-success">
 			<th> Quantity </th>
 			<th> Item </th>
 			<th class="text-right"> Price </th>
@@ -31,9 +32,7 @@
 							   value="@line.Product.ProductID" />
 						<input type="hidden" name="returnUrl"
 							   value="@Model?.ReturnUrl" />
-						<button type="submit" class="btn btn-sm btn-danger">
-							x
-						</button>
+						<button type="submit" class="btn btn-sm btn-danger fa fa-remove"></button>
 					</form>
 				</td>
 			</tr>
@@ -46,12 +45,11 @@
 		</tr>
 	</tfoot>
 </table>
+</div>
+
+<br />
 
 <div class="text-center">
-	<a class="btn btn-primary" href="@Model?.ReturnUrl">
-		Continue Shopping
-	</a>
-	<a class="btn btn-primary" asp-action="Checkout" asp-controller="Order">
-		Checkout
-	</a>
+	<a class="btn btn-secondary" href="@Model?.ReturnUrl"> Continue Shopping </a>
+	<a class="btn btn-success" asp-action="Checkout" asp-controller="Order"> Checkout </a>
 </div>

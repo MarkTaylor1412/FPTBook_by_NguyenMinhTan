@@ -1,8 +1,12 @@
-﻿@model Order
+﻿@{
+    ViewData["Title"] = "Shopping cart";
+}
 
-<h2> It's time to check out. </h2>
-<p> Enter your information or we will not ship your order. </p>
-
+@model Order
+<div class="text-center">
+    <h2 class="font font-monospace"> It's time to check out. </h2>
+    <p> Enter your information or we will not ship your order. </p>
+</div>
 <div asp-validation-summary="All" class="text-danger"></div>
 
 <form asp-action="Checkout" method="post">

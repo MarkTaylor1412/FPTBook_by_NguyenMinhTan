@@ -1,20 +1,15 @@
-﻿@*@{
+﻿@{
     ViewData["Title"] = "Home Page";
 }
-*@
-@model ProductsListViewModel
 
-@foreach (var p in Model?.Products ?? Enumerable.Empty<Product>())
-{
-	<partial name="ProductSummary" model="p" />
-}
-
-<div page-model="@Model?.PagingInfo"
-	 page-action="Index"
-	 page-class-enabled="true"
-	 page-class="btn"
-	 page-class-normal="btn-outline-dark"
-	 page-class-selected="btn-primary"
-	 page-url-category="@Model?.CurrentCategory!"
-	 class="btn-group pull-right m-1">
+<div class="text-center text-bg-success">
+    <h2 class="font font-monospace"> Welcome to FPTBook </h2>
 </div>
+
+<h4 class="text-center" style="padding-top: 10px"> Feel free to wander around. </h4>
+
+<div class="text-center" style="padding-top: 50px">
+    <a class="btn btn-warning font-monospace" asp-action="Books" asp-controller="Home"> Go shopping </a>
+    <a class="btn btn-danger font-monospace" href="/admin"> Log in as admin </a>
+</div>
+

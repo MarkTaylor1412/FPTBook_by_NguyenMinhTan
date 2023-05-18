@@ -48,7 +48,7 @@ app.UseRequestLocalization(opts =>
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
-	app.UseExceptionHandler("/Home/Error");
+	app.UseExceptionHandler("/home/error");
 	app.UseHsts();
 }
 app.UseHttpsRedirection();
@@ -86,7 +86,7 @@ app.MapControllerRoute("pagination",
 app.MapDefaultControllerRoute();
 app.MapRazorPages();
 app.MapBlazorHub();
-app.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
+app.MapFallbackToPage("/admin/{*catchall}", "/admin/index");
 
 SeedData.EnsurePopulated(app);
 IdentitySeedData.EnsurePopulated(app);

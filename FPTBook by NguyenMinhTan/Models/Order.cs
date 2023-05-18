@@ -12,10 +12,10 @@ namespace FPTBook_by_NguyenMinhTan.Models
 		[BindNever]
 		public ICollection<CartLine> Lines { get; set; } = new List<CartLine>();
 
-		[Required(ErrorMessage = "Your name?")]
+		[Required(ErrorMessage = "Please input your name.")]
 		public string? Name { get; set; }
 
-		[Required(ErrorMessage = "Your address?")]
+		[Required(ErrorMessage = "Please input your address.")]
 		public string? Line1 { get; set; }
 		public string? Line2 { get; set; }
 		public string? Line3 { get; set; }

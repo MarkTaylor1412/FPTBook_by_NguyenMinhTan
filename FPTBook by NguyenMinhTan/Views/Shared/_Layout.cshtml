@@ -2,28 +2,48 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title> FPTBook - Home </title>
+    <title> FPTBook - @ViewData["Title"] </title>
+    <link rel="icon" href="/img/logo.png" type="image/x-icon" />
     <link href="/lib/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
 </head>
-<body>
-    <div class="bg-dark text-white p-2">
+
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3"
+         style="background-color: royalblue;">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col navbar-brand">
-                    FPTBook
-                </div>
-                <div class="col-6 navbar-text text-end">
-                    <vc:cart-summary />
-                </div>
+            <span class="navbar-brand ml-2 bolded"><a class="nav-link text-black fa" href="/home/index"> FPTBook </a></span>
+
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item nav-link text-dark">
+                        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                            <ul class="navbar-nav flex-grow-1">
+                                <li class="nav-item">
+                                    <a class="nav-link text-black" href="/home/about">
+                                        About
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-black" href="/home/books">
+                                        Books
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar-text text-end">
+                <vc:cart-summary />
             </div>
         </div>
-    </div>
+    </nav>
+</header>
+
+<body>
     <div class="row m-1 p-1">
-        <div id="categories" class="col-3">
-            <vc:navigation-menu />
-        </div>
-        <div class="col-9">
+        <div class="col-12">
             @RenderBody()
         </div>
     </div>

@@ -18,7 +18,17 @@ namespace FPTBook_by_NguyenMinhTan.Controllers
 			repository = repo;
 		}
 
-		public ViewResult Index(string? category, int ProductPage = 1)
+		public ViewResult Index()
+		{
+			return View();
+		}
+
+		public ViewResult About()
+		{
+			return View();
+		}
+
+		public ViewResult Books(string? category, int ProductPage = 1)
 			=> View(new ProductsListViewModel
 			{
 				Products = repository.Products
