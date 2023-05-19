@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FPTBook_by_NguyenMinhTan.Migrations.AppIdentityDb
 {
     [DbContext(typeof(AppIdentityDbContext))]
-    [Migration("20230519035339_Initial")]
+    [Migration("20230517044137_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
