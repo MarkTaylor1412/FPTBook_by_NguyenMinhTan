@@ -1,96 +1,59 @@
 ﻿@{
-	ViewData["Title"] = "Shopping cart";
+    ViewData["Title"] = "Shopping cart";
 }
 
 @model Order
-<div class="text-center" style="padding-top: 10px; padding-bottom: 10px">
-	<h1 class="font font-monospace"> Almost there! </h1>
-	<p> Enter your information or we will not be able to deliver your order. </p>
+<div class="text-center">
+    <h2 class="font font-monospace"> It's time to check out. </h2>
+    <p> Enter your information or we will not ship your order. </p>
 </div>
 <div asp-validation-summary="All" class="text-danger"></div>
 
 <form asp-action="Checkout" method="post">
-	<div class="row m-1 p-3">
-		<div class="col-md-12 mb-4">
-			<div class="card mb-4">
-				<div class="card-header py-3 bg-danger">
-					<h5 class="text-center text-light"> Order info. </h5>
-				</div>
-				<div class="card-body">
-					<form>
-						<div class="row mb-4">
-							<div class="col">
-								<div class="form-outline">
-									<label class="form-label"> Full name </label>
-									<input asp-for="Name" class="form-control" />
-								</div>
-							</div>
-							<div class="col">
-								<div class="form-outline">
-									<label class="form-label"> Address </label>
-									<input asp-for="Address" class="form-control" />
-								</div>
-							</div>
-						</div>
+	<h3> Ship to </h3>
+	<div class="form-group">
+		<label> Name: </label>
+		<input asp-for="Name" class="form-control" />
+	</div>
 
-						<div class="row mb-4">
-							<div class="col">
-								<div class="form-outline">
-									<label class="form-label"> Phone number </label>
-									<input asp-for="Phone" class="form-control" />
-								</div>
-							</div>
-							<div class="col">
-								<div class="form-outline">
-									<label class="form-label"> City </label>
-									<input asp-for="City" class="form-control" />
-								</div>
-							</div>
-						</div>
+	<h3> Address </h3>
+	<div class="form-group">
+		<label> Line 1: </label>
+		<input asp-for="Line1" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label> Line 2: </label>
+		<input asp-for="Line2" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label> Line 3: </label>
+		<input asp-for="Line3" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label> City: </label>
+		<input asp-for="City" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label> State: </label>
+		<input asp-for="State" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label> Zip: </label>
+		<input asp-for="Zip" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label> Country: </label>
+		<input asp-for="Country" class="form-control" />
+	</div>
 
-						<div class="row mb-4">
-							<div class="col">
-								<div class="form-outline">
-									<label class="form-label"> Email </label>
-									<input asp-for="Email" class="form-control" />
-								</div>
-							</div>
-							<div class="col">
-								<div class="form-outline">
-									<label class="form-label"> Province </label>
-									<input asp-for="Province" class="form-control" />
-								</div>
-							</div>
-						</div>
+	<h3> (Optional) </h3>
+	<div class="checkbox">
+		<label>
+			<input asp-for="GiftWrap" /> Wrap these items into gifts
+		</label>
+	</div>
 
-						<div class="row mb-4">
-							<div class="col">
-								<div class="form-outline">
-									<label class="form-label"> Postal code </label>
-									<input asp-for="PostalCode" class="form-control" />
-								</div>
-							</div>
-							<div class="col">
-								<div class="form-outline">
-									<label class="form-label"> Country </label>
-									<input asp-for="Country" class="form-control" />
-								</div>
-							</div>
-						</div>
-
-						<div class="checkbox mb-5">
-							<label class="form-check-label">
-								<input asp-for="GiftWrap" class="form-check-input me-2" />
-								Wrap as gift(s)?
-							</label>
-						</div>
-
-						<div class="text-center mb-2">
-							<input class="btn btn-success btn-lg" type="submit" value="Place order" />
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
+	<div class="text-center">
+		<input class="btn btn-primary" type="submit" value="Complete Order" />
 	</div>
 </form>
