@@ -18,7 +18,7 @@ namespace FPTBook_by_NguyenMinhTan.Models
 		[Column(TypeName = "decimal(8, 2)")]
 		public decimal ProductPrice { get; set;}
 
-		public int ProductQuantity { get; set; }
+		public int? ProductQuantity { get; set; }
 
 		public string? ProductDescription { get; set; }
 	}
