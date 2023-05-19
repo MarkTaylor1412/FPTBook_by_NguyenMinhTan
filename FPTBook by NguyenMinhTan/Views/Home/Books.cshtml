@@ -4,24 +4,44 @@
 
 @model ProductsListViewModel
 
-<div class="row m-1 p-1">
-	<div id="categories" class="col-1">
-		<vc:navigation-menu />
-	</div>
-	<div class="col-9">
-		@foreach (var p in Model?.Products ?? Enumerable.Empty<Product>())
-		{
-			<partial name="ProductSummary" model="p" />
-		}
-
-		<div page-model="@Model?.PagingInfo"
-			 page-action="Books"
-			 page-class-enabled="true"
-			 page-class="btn"
-			 page-class-normal="btn-outline-dark"
-			 page-class-selected="btn-primary"
-			 page-url-category="@Model?.CurrentCategory!"
-			 class="btn-group pull-right m-1">
+<head>
+	<div class="card" style="background-color:navajowhite">
+		<div class="text-center card-header" style="padding-top:30px; padding-bottom:30px; font-family:'Times New Roman', Times, serif">
+			<h1 style="font-size:50px"> FPTBook's books </h1>
+			<p> Browse the catalogue for your desired books. </p>
 		</div>
 	</div>
-</div>
+</head>
+
+<body style="background-color:antiquewhite">
+	<div class="row m-5 p-5">
+		<div id="categories" class="col-1" style="padding-top:5px">
+			<vc:navigation-menu />
+		</div>
+		<div class="col-11">
+			@foreach (var p in Model?.Products ?? Enumerable.Empty<Product>())
+			{
+				<partial name="BookSummary" model="p" />
+			}
+
+			<div page-model="@Model?.PagingInfo"
+				 page-action="Books"
+				 page-class-enabled="true"
+				 page-class="btn"
+				 page-class-normal="btn-outline-dark"
+				 page-class-selected="btn-warning btn-outline-dark"
+				 page-url-category="@Model?.CurrentCategory!"
+	 class="btn-group pull-right m-1">
+			</div>
+		</div>
+	</div>
+</body>
+
+<footer>
+	<div class="card" style="background-color:tan">
+		<div class="text-center card-header" style="padding-top:30px; padding-bottom:30px; font-family:'Times New Roman', Times, serif">
+			<h1 style="font-size:50px"> FPTBook's books </h1>
+			<p> Browse the catalogue for your desired books. </p>
+		</div>
+	</div>
+</footer>
