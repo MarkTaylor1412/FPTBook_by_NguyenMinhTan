@@ -4,10 +4,16 @@
 @model FPTBook_by_NguyenMinhTan.Pages.CartModel
 @addTagHelper *, FPTBook_by_NguyenMinhTan
 
-<div align="center">
-<h2 class="text-bg-warning"> Your Shopping Cart </h2>
-<br />
+@{
+	ViewData["Title"] = "Shopping Cart";
+}
 
+<div class="mt-4 mb-4">
+	<div class="text-center" style="font-family:'Times New Roman', Times, serif">
+		<h1 style="font-size:50px"> Your shopping cart </h1>
+		<p> Pick some more books or check out now! </p>
+	</div>
+</div>
 <table class="table table-bordered table-striped">
 	<thead>
 		<tr class="text-center text-bg-success">
