@@ -2,7 +2,7 @@
 @page "/admin"
 @inherits OwningComponentBase<IStoreRepository>
 
-<h3> [The list of products] </h3>
+<h2> The list of products </h2>
 
 <table class="table table-sm table-striped table-bordered">
 	<thead>
@@ -54,8 +54,8 @@
 	</tbody>
 </table>
 
-<NavLink class="btn btn-dark" href="/admin/products/add">
-	+
+<NavLink class="btn btn-outline-success" href="/admin/products/add">
+	Add
 </NavLink>
 
 @code {

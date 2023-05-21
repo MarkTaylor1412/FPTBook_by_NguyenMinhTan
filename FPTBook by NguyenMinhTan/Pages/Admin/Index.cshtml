@@ -1,5 +1,7 @@
 ﻿@page "/admin"
-@{ Layout = null; }
+@{
+	Layout = null;
+}
 
 @model FPTBook_by_NguyenMinhTan.Pages.Admin.IndexModel
 @using Microsoft.AspNetCore.Authorization
@@ -7,13 +9,13 @@
 
 <!DOCTYPE html>
 <html>
-	<head>
-		<title> Admininstrator's page </title>
-		<link href="/lib//twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-		<base href="/" />
-	</head>
-	<body>
-		<component type="typeof(Routed)" render-mode="Server" />
-		<script src="/_framework/blazor.server.js"></script>
-	</body>
+<head>
+	<title> FPTBook - Administration page </title>
+	<link href="/lib//twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<base href="/" />
+</head>
+<body>
+	<component type="typeof(Routed)" render-mode="Server" />
+	<script src="/_framework/blazor.server.js"></script>
+</body>
 </html>

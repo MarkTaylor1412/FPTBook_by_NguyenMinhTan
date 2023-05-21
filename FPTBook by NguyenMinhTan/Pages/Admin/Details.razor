@@ -1,6 +1,6 @@
 ﻿@page "/admin/products/details/{id:long}"
 
-<h3 class="bg-info text-white text-center p-1">
+<h3 class="bg-success text-light text-center p-1">
 	@Product.ProductName
 </h3>
 
@@ -33,13 +33,15 @@
 	</tbody>
 </table>
 
-<NavLink class="btn btn-primary" href="@EditUrl">
-	Modify
-</NavLink>
-
+<div style="padding-top:30px">
 <NavLink class="btn btn-secondary" href="/admin/products">
 	Return
 </NavLink>
+
+<NavLink class="btn btn-success" href="@EditUrl">
+	Modify
+</NavLink>
+</div>
 
 @code {
 	[Inject]

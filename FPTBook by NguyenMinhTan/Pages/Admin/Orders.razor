@@ -1,13 +1,13 @@
 ﻿@page "/admin/orders"
 @inherits OwningComponentBase<IOrderRepository>
 
-@*<h3> Còn đây là trang đơn hàng. Oke chưa? </h3>*@
+<h2> The list of orders </h2>
 
 <OrderTable TableTitle="Unshipped Orders" Orders="UnshippedOrders" ButtonLabel="Ship" OrderSelected="ShipOrder" />
 
 <OrderTable TableTitle="Shipped Orders" Orders="ShippedOrders" ButtonLabel="Reset" OrderSelected="ResetOrder" />
 
-<button class="btn btn-info" @onclick="@(e => UpdateData())">
+<button class="btn btn-outline-success" @onclick="@(e => UpdateData())">
 	Refresh
 </button>
 
